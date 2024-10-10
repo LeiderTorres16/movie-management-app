@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Inicio from "./pages/Inicio";
 import ProtectedRoute from "./helpers/ProtectedRoute";
@@ -16,7 +16,6 @@ function App() {
 
 
   useEffect(() => {
-    // Actualiza el estado cuando el sessionId cambia en localStorage
     const storedSessionId = localStorage.getItem('session_id');
     if (storedSessionId) {
       setSessionId(storedSessionId);
@@ -26,6 +25,9 @@ function App() {
   return (
     <Router>
       <Routes>
+
+      <Route path="/" element={<Navigate to="/inicio" />} />
+
       <Route path="/" element={<MainLayout sessionId={sessionId} setSessionId={setSessionId} />}>
       <Route path="/inicio" element={<Inicio />} />
         <Route path="/login" element={<Login />} />

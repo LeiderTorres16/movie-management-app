@@ -1,12 +1,12 @@
 import { create } from "zustand";
 
 const useListStore = create((set) => ({
-  lists: JSON.parse(localStorage.getItem("movie_lists")) || [], // Recupera las listas de localStorage
+  lists: JSON.parse(localStorage.getItem("movie_lists")) || [],
 
   addList: (listName) =>
     set((state) => {
       const updatedLists = [...state.lists, { name: listName, movies: [] }];
-      localStorage.setItem("movie_lists", JSON.stringify(updatedLists)); // Guarda las listas actualizadas en localStorage
+      localStorage.setItem("movie_lists", JSON.stringify(updatedLists));
       return { lists: updatedLists };
     }),
 
@@ -38,7 +38,7 @@ const useListStore = create((set) => ({
         }
         return list;
       });
-      localStorage.setItem("movie_lists", JSON.stringify(updatedLists)); // Guarda las listas actualizadas en localStorage
+      localStorage.setItem("movie_lists", JSON.stringify(updatedLists));
       return { lists: updatedLists };
     }),
 
@@ -50,14 +50,14 @@ const useListStore = create((set) => ({
         }
         return list;
       });
-      localStorage.setItem("movie_lists", JSON.stringify(updatedLists)); // Guarda las listas actualizadas en localStorage
+      localStorage.setItem("movie_lists", JSON.stringify(updatedLists));
       return { lists: updatedLists };
     }),
 
   deleteList: (listName) =>
     set((state) => {
       const updatedLists = state.lists.filter((list) => list.name !== listName);
-      localStorage.setItem("movie_lists", JSON.stringify(updatedLists)); // Actualizamos localStorage
+      localStorage.setItem("movie_lists", JSON.stringify(updatedLists));
       return { lists: updatedLists };
     }),
     

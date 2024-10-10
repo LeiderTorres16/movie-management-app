@@ -10,22 +10,18 @@ function Login() {
   const login = useAuthStore((state) => state.login);
   const navigate = useNavigate();
 
-  // Función para obtener el request token
   const getRequestToken = async () => {
     try {
       const response = await axios.get(
         `https://api.themoviedb.org/3/authentication/token/new?api_key=${apiKey}`
       );
       const { request_token } = response.data;
-
-      // Redirige al usuario a TMDB para que autorice el request token
       window.location.href = `https://www.themoviedb.org/authenticate/${request_token}?redirect_to=${window.location.origin}/auth/callback`;
     } catch (error) {
       console.error("Error al obtener el request token", error);
     }
   };
 
-  // Manejar la respuesta de la redirección
   useEffect(() => {
     const createSession = async (requestToken) => {
       try {

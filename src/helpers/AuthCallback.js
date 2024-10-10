@@ -37,7 +37,7 @@ function AuthCallback({ setSessionId }) {
     if (requestToken && approved === 'true') {
       createSession(requestToken);
     } else {
-      navigate('/login'); // Si no hay token o no fue aprobado, redirigir a login
+      navigate('/login');
     }
   }, [login, navigate, setSessionId]);
 

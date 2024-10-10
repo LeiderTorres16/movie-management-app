@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import useListStore from "../store/listStore";
 import { useNavigate } from "react-router-dom";
 import { Trash2 } from "lucide-react";
-//import useAuthStore from "../store/authStore";
 
 function ManageLists() {
   const lists = useListStore((state) => state.lists);

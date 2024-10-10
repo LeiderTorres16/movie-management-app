@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import DarkModeToggle from '../components/DarkModeToggle'; // Importa el toggle
+import DarkModeToggle from '../components/DarkModeToggle';
 
 function Navbar({ sessionId, setSessionId }) {
   const navigate = useNavigate();
 
-  // Función para manejar el proceso de logout
   const handleLogout = () => {
     localStorage.removeItem('session_id');
     setSessionId(null);
@@ -35,7 +34,6 @@ function Navbar({ sessionId, setSessionId }) {
               <button className="hover:text-gray-300">Iniciar Sesión</button>
             </Link>
           )}
-          {/* Toggle de Modo Oscuro */}
           <DarkModeToggle />
         </div>
       </div>

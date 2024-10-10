@@ -11,7 +11,7 @@ function MovieDetails() {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const lists = useListStore((state) => state.lists); // Obtenemos las listas de películas
+  const lists = useListStore((state) => state.lists);
   const addMovieToList = useListStore((state) => state.addMovieToList);
   const [selectedList, setSelectedList] = useState("");
 
@@ -33,7 +33,7 @@ function MovieDetails() {
 
   const handleAddMovieToList = () => {
     if (selectedList && movie) {
-      addMovieToList(selectedList, movie); // Agrega la película a la lista seleccionada
+      addMovieToList(selectedList, movie);
       alert(`${movie.title} se ha agregado a la lista ${selectedList}`);
     }
   };
